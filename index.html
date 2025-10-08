@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Institution Course Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: rgb(71, 83, 95);
+            color: #ffffff;
+        }
+        header {
+            position: relative;
+            background: url("institute.jpg") center center / cover no-repeat;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 0;
+        }
+        header * {
+            position: relative;
+            z-index: 1;
+        }
+        header img {
+            width: 150px;
+            margin-bottom: -10px;
+        }
+        .courses, .about, .register {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .courses h2, .about h2, .register h2 {
+            color: #000000;
+        }
+        .course-list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .course-item {
+            border: 1px solid #ccc;
+            background-color: black;
+            border-radius: 8px;
+            padding: 15px;
+            flex: 1 1 30%;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        }
+        .about-images {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .about-images img {
+            width: 200px;
+            border-radius: 8px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 400px;
+        }
+        input, textarea, select, option, button {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #004080;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #003366;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        footer p {
+            margin-top: -30px;
+        }
+        .contact-info {
+            margin: 10px 0;
+            text-align: left;
+            margin-left: 40px;
+        }
+        #types {
+            background-color: black;
+        }
+        #type {
+            background-color: #000000;
+            text-align: center;
+            position: relative;
+        }
+        #jtype {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        #jtype a {
+            color: white;
+            display: inline-block;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        #jtype a:hover {
+            background-color: #555;
+        }
+        #navbr {
+            background-color: #444;
+            text-align: center;
+            position: relative;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: white;
+            display: inline-block;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .nav-links a:hover {
+            background-color: #555;
+        }
+        .toggle-btn {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            padding: 14px 20px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .course {
+            width: 60%;
+            height: 15%;
+            display: flex;
+            margin: 10px;
+            margin-bottom: 20px;
+            margin-left: 50px;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #000000;
+        }
+        .course h3 {
+            margin-right: 20px;
+            color: #11630e;
+        }
+        .all-courses {
+            margin-left: 500px;
+        }
+        @media (max-width: 768px) {
+            footer p {
+                margin-top: 0;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: #444;
+            }
+            .toggle-btn {
+                display: block;
+                color: rgb(255, 255, 255);
+                margin-top: -60px;
+            }
+            .course {
+                width: 95%;
+                height: 15%;
+                display: flex;
+                margin-bottom: 10px;
+                margin-left: auto;
+                margin-right: auto;
+                border: 2px solid black;
+                border-radius: 5px;
+                padding: 10px;
+                background-color: #000000;
+            }
+            .all-courses {
+                margin-left: 10px;
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Online Learning Institute</h1>
+    <p>Empowering students for a better tomorrow</p>
+</header>
+
+<nav id="navbr">
+    <div class="toggle-btn" onclick="toggleMenu()">☰</div>
+    <div class="nav-links" id="navLinks">
+        <a href="#" onclick="types()">courses</a>
+        <a href="#about">About the institute</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<div id="types" style="display: none;">
+    <nav id="type">
+        <div id="jtype">
+            <a href="#" onclick="smonths()">2 Months</a>
+            <a href="#" onclick="bmonths()">6 Months</a>
+            <a href="#" onclick="syear()">1 Year</a>
+            <a href="#" onclick="byear()">3 Years</a>
+        </div>
+    </nav>
+</div>
+
+<div class="all-courses" id="2month" style="display: none;">
+    <div class="course">
+        <h3>Web Development</h3>
+        <p>Learn HTML, CSS, JavaScript, and build modern websites from VS Code.</p>
+    </div>
+    <div class="course">
+        <h3>Data Science</h3>
+        <p>Master Python, statistics, and machine learning techniques to analyze data.</p>
+    </div>
+    <div class="course">
+        <h3>Digital Marketing</h3>
+        <p>Explore SEO, social media marketing, and online branding strategies.</p>
+    </div>
+</div>
+
+<div class="all-courses" id="6month" style="display: none;">
+    <div class="course">
+        <h3>Advanced Programming</h3>
+        <p>Deep dive into algorithms, data structures, and system design concepts.</p>
+    </div>
+</div>
+
+<div class="all-courses" id="1year" style="display: none;">
+    <div class="course">
+        <h3>Full Stack Development</h3>
+        <p>Complete web and backend development training with real-world projects.</p>
+    </div>
+</div>
+
+<div class="all-courses" id="3years" style="display: none;">
+    <div class="course">
+        <h3>Professional Certification</h3>
+        <p>Comprehensive certification program with internships and industry mentorship.</p>
+    </div>
+</div>
+
+<section class="courses">
+    <h2>Demanding Courses</h2>
+    <div class="course-list">
+        <div class="course-item">
+            <h3>Web Development</h3>
+            <p>Learn HTML, CSS, JavaScript, and build modern websites from VS Code.</p>
+        </div>
+        <div class="course-item">
+            <h3>Data Science</h3>
+            <p>Master Python, statistics, and machine learning techniques to analyze data.</p>
+        </div>
+        <div class="course-item">
+            <h3>Digital Marketing</h3>
+            <p>Explore SEO, social media marketing, and online branding strategies.</p>
+        </div>
+    </div>
+</section>
+
+<section class="register">
+    <h2>Student Registration</h2>
+    <form action="#" method="POST">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="tel" name="phone" placeholder="Phone Number" required />
+        <select name="course" required>
+            <option value="" disabled selected>Select a Course</option>
+            <option value="web-development">Web Development (2 Months)</option>
+            <option value="data-science">Data Science (2 Months)</option>
+            <option value="digital-marketing">Digital Marketing (2 Months)</option>
+            <option value="advanced-programming">Advanced Programming (6 Months)</option>
+            <option value="full-stack-development">Full Stack Development (1 Year)</option>
+            <option value="professional-certification">Professional Certification (3 Years)</option>
+        </select>
+        <textarea name="message" rows="4" placeholder="Tell us something about yourself"></textarea>
+        <button type="submit">Register Now</button>
+    </form>
+</section>
+
+<section class="about" id="about">
+    <h2>About Us</h2>
+    <p>At Online Learning Institute, we believe in providing high-quality education accessible to all. Our team of expert trainers and state-of-the-art facilities ensure an offline learning experience for students worldwide.</p>
+    <div class="about-images">
+        <img src="institute.jpg" alt="Classroom Image" />
+        <img src="inst class.webp" alt="Laboratory Image" />
+        <img src="inst office.webp" alt="Students in Activity" />
+        <img src="inst lab.avif" alt="Activity" />
+    </div>
+</section>
+
+<footer>
+    <div class="contact-info" id="contact">
+        <p style="margin-top: 5px;">Connect with us:</p>
+        WhatsApp: +91 12345 67899<br>
+        email: instituteofabc@gmail.com<br>
+        call: +91 12345 67899
+    </div>
+    <p>&copy; 2025 Global Learning Institute</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks.style.display === "flex") {
+            navLinks.style.display = "none";
+        } else {
+            navLinks.style.display = "flex";
+        }
+    }
+
+    function types() {
+        const typesDiv = document.getElementById("types");
+        if (typesDiv.style.display === "block") {
+            typesDiv.style.display = "none";
+        } else {
+            typesDiv.style.display = "block";
+        }
+    }
+
+    function smonths() {
+        const smonthDiv = document.getElementById("2month");
+        const isVisible = smonthDiv.style.display === "block";
+        
+        smonthDiv.style.display = isVisible ? "none" : "block";
+        document.getElementById("6month").style.display = "none";
+        document.getElementById("1year").style.display = "none";
+        document.getElementById("3years").style.display = "none";
+    }
+
+    function bmonths() {
+        const bmonthDiv = document.getElementById("6month");
+        const isVisible = bmonthDiv.style.display === "block";
+        
+        bmonthDiv.style.display = isVisible ? "none" : "block";
+        document.getElementById("2month").style.display = "none";
+        document.getElementById("1year").style.display = "none";
+        document.getElementById("3years").style.display = "none";
+    }
+
+    function syear() {
+        const syearDiv = document.getElementById("1year");
+        const isVisible = syearDiv.style.display === "block";
+        
+        syearDiv.style.display = isVisible ? "none" : "block";
+        document.getElementById("2month").style.display = "none";
+        document.getElementById("6month").style.display = "none";
+        document.getElementById("3years").style.display = "none";
+    }
+
+    function byear() {
+        const byearDiv = document.getElementById("3years");
+        const isVisible = byearDiv.style.display === "block";
+        
+        byearDiv.style.display = isVisible ? "none" : "block";
+        document.getElementById("2month").style.display = "none";
+        document.getElementById("6month").style.display = "none";
+        document.getElementById("1year").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
+
