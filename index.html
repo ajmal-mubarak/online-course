@@ -22,23 +22,20 @@
             overflow: hidden;
             border-radius: 20px;
         }
-        header::before {
+                header::before {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.753);
             z-index: 0;
         }
+        
         header * {
             position: relative;
             z-index: 1;
-        }
-        header img {
-            width: 150px;
-            margin-bottom: -10px;
         }
         .courses, .about, .register {
             padding: 20px;
@@ -179,10 +176,21 @@
         .all-courses {
             margin-left: 500px;
         }
+        .iframe {
+            margin-left: 600px;
+            margin-top: -350px;
+            border: 4px solid black;
+            border-radius: 4px;
+            width: 560px;
+            height: 315px;
+        }
         @media (max-width: 768px) {
             footer p {
                 margin-top: 0;
             }
+            .iframe {
+                display: none;
+        }
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -312,6 +320,18 @@
         <button type="submit">Register Now</button>
     </form>
 </section>
+
+
+<div  class="iframe">
+    <iframe width="560" height="315" 
+         src="https://www.youtube.com/embed/BKMCbgTd2Jg?si=7Gndrywky6TZxh4b?controls=0&modestbranding=1&rel=0&showinfo=0"
+         title="YouTube video player" 
+         frameborder="0" 
+         allow="accelerometer; autoplay; clipboard-write; encrypted-media;gyroscope; picture-in-picture; web-share"
+         referrerpolicy="strict-origin-when-cross-origin">
+    </iframe>
+ </div>
+
 
 <section class="about" id="about">
     <h2>About Us</h2>
