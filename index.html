@@ -1,420 +1,710 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Institution Course Landing Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: rgb(71, 83, 95);
-            color: #ffffff;
-        }
-        header {
-            position: relative;
-            background: url("institute.jpg") center center / cover no-repeat;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            overflow: hidden;
-            border-radius: 20px;
-        }
-                header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.753);
-            z-index: 0;
-        }
-        
-        header * {
-            position: relative;
-            z-index: 1;
-        }
-        .courses, .about, .register {
-            padding: 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-        .courses h2, .about h2, .register h2 {
-            color: #000000;
-        }
-        .course-list {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .course-item {
-            border: 1px solid #ccc;
-            background-color: black;
-            border-radius: 8px;
-            padding: 15px;
-            flex: 1 1 30%;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-        }
-        .about-images {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .about-images img {
-            width: 200px;
-            border-radius: 8px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-width: 400px;
-        }
-        input, textarea, select, option, button {
-            padding: 10px;
-            font-size: 1em;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
-        button {
-            background-color: #004080;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #003366;
-        }
-        footer {
-            background-color: #222;
-            color: white;
-            text-align: center;
-            padding: 15px 20px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        footer p {
-            margin-top: -30px;
-        }
-        .contact-info {
-            margin: 10px 0;
-            text-align: left;
-            margin-left: 40px;
-        }
-        #types {
-            background-color: black;
-        }
-        #type {
-            background-color: #000000;
-            text-align: center;
-            position: relative;
-        }
-        #jtype {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        #jtype a {
-            color: white;
-            display: inline-block;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-        #jtype a:hover {
-            background-color: #555;
-        }
-        #navbr {
-            background-color: #444;
-            text-align: center;
-            position: relative;
-        }
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .nav-links a {
-            color: white;
-            display: inline-block;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-        .nav-links a:hover {
-            background-color: #555;
-        }
-        .toggle-btn {
-            display: none;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-            padding: 14px 20px;
-            position: absolute;
-            right: 0;
-            top: 0;
-        }
-        .course {
-            width: 60%;
-            height: 15%;
-            display: flex;
-            margin: 10px;
-            margin-bottom: 20px;
-            margin-left: 50px;
-            border: 2px solid black;
-            border-radius: 5px;
-            padding: 10px;
-            background-color: #000000;
-        }
-        .course h3 {
-            margin-right: 20px;
-            color: #11630e;
-        }
-        .all-courses {
-            margin-left: 500px;
-        }
-        .iframe {
-            margin-left: 650px;
-            margin-top: -350px;
-            border: 4px solid black;
-            border-radius: 4px;
-            width: 560px;
-            height: 315px;
-        }
-        @media (max-width: 768px) {
-            footer p {
-                margin-top: 0;
-            }
-            .iframe {
-                display: none;
-        }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background-color: #444;
-            }
-            .toggle-btn {
-                display: block;
-                color: rgb(255, 255, 255);
-                margin-top: -60px;
-            }
-            .course {
-                width: 95%;
-                height: 15%;
-                display: flex;
-                margin-bottom: 10px;
-                margin-left: auto;
-                margin-right: auto;
-                border: 2px solid black;
-                border-radius: 5px;
-                padding: 10px;
-                background-color: #000000;
-            }
-            .all-courses {
-                margin-left: 10px;
-                width: 95%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Online Learning Institute — Empowering students with professional courses in Web Development, Data Science, Digital Marketing, and more." />
+  <meta name="keywords" content="online course, web development, data science, digital marketing, full stack, institute, education" />
+  <title>Online Learning Institute | Empowering Future Innovators</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-    <h1>Online Learning Institute</h1>
-    <p>Empowering students for a better tomorrow</p>
-</header>
+<!-- ===================== PAGE LOADER ===================== -->
+<div id="page-loader">
+  <div class="loader-ring"></div>
+  <div class="loader-text">🎓 Online Learning Institute</div>
+</div>
 
-<nav id="navbr">
-    <div class="toggle-btn" onclick="toggleMenu()">☰</div>
-    <div class="nav-links" id="navLinks">
-        <a href="#" onclick="types()">courses</a>
-        <a href="#about">About the institute</a>
-        <a href="#contact">Contact</a>
-    </div>
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">🎓 LearnInstitute</a>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#courses">Courses</a>
+    <a href="#popular">Popular</a>
+    <a href="#about">About</a>
+    <a href="#register">Register</a>
+    <a href="#contact">Contact</a>
+    <a href="#register" class="nav-cta">Enroll Now</a>
+  </div>
+
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<div id="types" style="display: none;">
-    <nav id="type">
-        <div id="jtype">
-            <a href="#" onclick="smonths()">2 Months</a>
-            <a href="#" onclick="bmonths()">6 Months</a>
-            <a href="#" onclick="syear()">1 Year</a>
-            <a href="#" onclick="byear()">3 Years</a>
-        </div>
-    </nav>
+<!-- ===================== HERO SECTION ===================== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Est. 2018 &nbsp;·&nbsp; Certified Institute</div>
+    <h1 class="hero-title">
+      Unlock Your <span class="gradient-text">Potential</span><br>
+      with Expert-Led Courses
+    </h1>
+    <p class="hero-subtitle">
+      Join thousands of students transforming their careers through industry-relevant, 
+      practical training programs designed by top professionals.
+    </p>
+    <div class="hero-actions">
+      <a href="#courses" class="btn-primary" id="explore-courses-btn">
+        <span>Explore Courses</span>
+        <span>→</span>
+      </a>
+      <a href="#about" class="btn-outline">
+        <span>📖</span>
+        <span>About Institute</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-dot"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ===================== STATS STRIP ===================== -->
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-number">8+</div>
+      <div class="stat-label">Years of Excellence</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-number">12K+</div>
+      <div class="stat-label">Students Enrolled</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-number">25+</div>
+      <div class="stat-label">Expert Instructors</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-number">98%</div>
+      <div class="stat-label">Placement Rate</div>
+    </div>
+  </div>
 </div>
 
-<div class="all-courses" id="2month" style="display: none;">
-    <div class="course">
+<!-- ===================== COURSES SECTION ===================== -->
+<section id="courses" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Our Programs</span>
+      <h2 class="section-title">Browse by <span class="italic">Duration</span></h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">
+        Choose a program that fits your schedule — from intensive short courses to comprehensive multi-year degrees.
+      </p>
+    </div>
+
+    <!-- Duration Filter Tabs -->
+    <div class="duration-tabs reveal">
+      <button class="duration-tab active" onclick="switchDuration('2month', this)" id="tab-2month">
+        ⚡ 2 Months
+      </button>
+      <button class="duration-tab" onclick="switchDuration('6month', this)" id="tab-6month">
+        📚 6 Months
+      </button>
+      <button class="duration-tab" onclick="switchDuration('1year', this)" id="tab-1year">
+        🎯 1 Year
+      </button>
+      <button class="duration-tab" onclick="switchDuration('3years', this)" id="tab-3years">
+        🏆 3 Years
+      </button>
+    </div>
+
+    <!-- 2 Month Courses -->
+    <div class="courses-panel active" id="panel-2month">
+      <div class="course-card reveal">
+        <div class="course-card-icon">💻</div>
         <h3>Web Development</h3>
-        <p>Learn HTML, CSS, JavaScript, and build modern websites from VS Code.</p>
-    </div>
-    <div class="course">
-        <h3>Data Science</h3>
-        <p>Master Python, statistics, and machine learning techniques to analyze data.</p>
-    </div>
-    <div class="course">
+        <p>Learn HTML, CSS, JavaScript fundamentals and build modern, responsive websites from scratch using VS Code.</p>
+        <div class="course-card-meta">
+          <span class="course-badge">Beginner Friendly</span>
+          <div class="course-arrow">→</div>
+        </div>
+      </div>
+      <div class="course-card reveal reveal-delay-1">
+        <div class="course-card-icon">📊</div>
+        <h3>Data Science Basics</h3>
+        <p>Master Python fundamentals, statistics, and introductory machine learning techniques to analyze real-world data.</p>
+        <div class="course-card-meta">
+          <span class="course-badge">In Demand</span>
+          <div class="course-arrow">→</div>
+        </div>
+      </div>
+      <div class="course-card reveal reveal-delay-2">
+        <div class="course-card-icon">📣</div>
         <h3>Digital Marketing</h3>
-        <p>Explore SEO, social media marketing, and online branding strategies.</p>
+        <p>Explore SEO, social media marketing, Google Ads, and online branding strategies for modern businesses.</p>
+        <div class="course-card-meta">
+          <span class="course-badge">High ROI</span>
+          <div class="course-arrow">→</div>
+        </div>
+      </div>
     </div>
-</div>
 
-<div class="all-courses" id="6month" style="display: none;">
-    <div class="course">
+    <!-- 6 Month Courses -->
+    <div class="courses-panel" id="panel-6month">
+      <div class="course-card reveal">
+        <div class="course-card-icon">⚙️</div>
         <h3>Advanced Programming</h3>
-        <p>Deep dive into algorithms, data structures, and system design concepts.</p>
+        <p>Deep dive into algorithms, data structures, system design concepts and advanced problem-solving techniques.</p>
+        <div class="course-card-meta">
+          <span class="course-badge">Intermediate</span>
+          <div class="course-arrow">→</div>
+        </div>
+      </div>
+      <div class="course-card reveal reveal-delay-1">
+        <div class="course-card-icon">🤖</div>
+        <h3>Machine Learning</h3>
+        <p>Understand supervised & unsupervised learning, neural networks and deploy ML models in real-world applications.</p>
+        <div class="course-card-meta">
+          <span class="course-badge">Advanced</span>
+          <div class="course-arrow">→</div>
+        </div>
+      </div>
+      <div class="course-card reveal reveal-delay-2">
+        <div class="course-card-icon">📱</div>
+        <h3>UI/UX Design</h3>
+        <p>Master Figma, design principles, user research and prototyping to create outstanding digital experiences.</p>
+        <div class="course-card-meta">
+          <span class="course-badge">Creative</span>
+          <div class="course-arrow">→</div>
+        </div>
+      </div>
     </div>
-</div>
 
-<div class="all-courses" id="1year" style="display: none;">
-    <div class="course">
+    <!-- 1 Year Courses -->
+    <div class="courses-panel" id="panel-1year">
+      <div class="course-card reveal">
+        <div class="course-card-icon">🌐</div>
         <h3>Full Stack Development</h3>
-        <p>Complete web and backend development training with real-world projects.</p>
+        <p>Complete web and backend development training using React, Node.js, MongoDB — with real-world industry projects.</p>
+        <div class="course-card-meta">
+          <span class="course-badge">Most Popular</span>
+          <div class="course-arrow">→</div>
+        </div>
+      </div>
+      <div class="course-card reveal reveal-delay-1">
+        <div class="course-card-icon">☁️</div>
+        <h3>Cloud & DevOps</h3>
+        <p>Master AWS, Docker, Kubernetes, CI/CD pipelines and cloud architecture for modern software deployment.</p>
+        <div class="course-card-meta">
+          <span class="course-badge">Job Ready</span>
+          <div class="course-arrow">→</div>
+        </div>
+      </div>
     </div>
-</div>
 
-<div class="all-courses" id="3years" style="display: none;">
-    <div class="course">
+    <!-- 3 Year Courses -->
+    <div class="courses-panel" id="panel-3years">
+      <div class="course-card reveal">
+        <div class="course-card-icon">🏅</div>
         <h3>Professional Certification</h3>
-        <p>Comprehensive certification program with internships and industry mentorship.</p>
+        <p>Comprehensive multi-year certification program with internships, live projects and direct industry mentorship.</p>
+        <div class="course-card-meta">
+          <span class="course-badge">Elite Program</span>
+          <div class="course-arrow">→</div>
+        </div>
+      </div>
+      <div class="course-card reveal reveal-delay-1">
+        <div class="course-card-icon">🔬</div>
+        <h3>Computer Science Degree</h3>
+        <p>A thorough academic program covering algorithms, AI, networking, databases and software engineering fundamentals.</p>
+        <div class="course-card-meta">
+          <span class="course-badge">Degree Level</span>
+          <div class="course-arrow">→</div>
+        </div>
+      </div>
     </div>
-</div>
 
-<section class="courses">
-    <h2>Demanding Courses</h2>
-    <div class="course-list">
-        <div class="course-item">
+  </div>
+</section>
+
+<!-- ===================== POPULAR COURSES ===================== -->
+<section id="popular" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Top Picks</span>
+      <h2 class="section-title">Most <span class="italic">Demanded</span> Courses</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Chosen by thousands of learners — these courses deliver the highest career impact.</p>
+    </div>
+
+    <div class="popular-grid">
+      <div class="popular-card reveal">
+        <div class="popular-card-top">
+          <div class="popular-card-icon">💻</div>
+          <div>
             <h3>Web Development</h3>
-            <p>Learn HTML, CSS, JavaScript, and build modern websites from VS Code.</p>
+            <div class="popular-card-sub">2 Months · Beginner</div>
+          </div>
         </div>
-        <div class="course-item">
+        <p>Build stunning, responsive websites using HTML, CSS, JavaScript and modern frameworks.</p>
+        <div class="popular-card-footer">
+          <div class="popular-card-rating">⭐ 4.9 (1.2k reviews)</div>
+          <div class="popular-card-enroll">3,400+ enrolled</div>
+        </div>
+      </div>
+
+      <div class="popular-card reveal reveal-delay-1">
+        <div class="popular-card-top">
+          <div class="popular-card-icon">📊</div>
+          <div>
             <h3>Data Science</h3>
-            <p>Master Python, statistics, and machine learning techniques to analyze data.</p>
+            <div class="popular-card-sub">2 Months · Intermediate</div>
+          </div>
         </div>
-        <div class="course-item">
+        <p>Analyze and interpret complex datasets using Python, Pandas, NumPy and visualization tools.</p>
+        <div class="popular-card-footer">
+          <div class="popular-card-rating">⭐ 4.8 (980 reviews)</div>
+          <div class="popular-card-enroll">2,800+ enrolled</div>
+        </div>
+      </div>
+
+      <div class="popular-card reveal reveal-delay-2">
+        <div class="popular-card-top">
+          <div class="popular-card-icon">🌐</div>
+          <div>
+            <h3>Full Stack Dev</h3>
+            <div class="popular-card-sub">1 Year · Advanced</div>
+          </div>
+        </div>
+        <p>End-to-end web development from frontend to backend with React, Node.js, and databases.</p>
+        <div class="popular-card-footer">
+          <div class="popular-card-rating">⭐ 4.9 (2.1k reviews)</div>
+          <div class="popular-card-enroll">5,100+ enrolled</div>
+        </div>
+      </div>
+
+      <div class="popular-card reveal reveal-delay-3">
+        <div class="popular-card-top">
+          <div class="popular-card-icon">📣</div>
+          <div>
             <h3>Digital Marketing</h3>
-            <p>Explore SEO, social media marketing, and online branding strategies.</p>
+            <div class="popular-card-sub">2 Months · Beginner</div>
+          </div>
         </div>
+        <p>Master SEO, paid ads, social media and content strategy to grow any online business.</p>
+        <div class="popular-card-footer">
+          <div class="popular-card-rating">⭐ 4.7 (860 reviews)</div>
+          <div class="popular-card-enroll">2,200+ enrolled</div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<section class="register">
-    <h2>Student Registration</h2>
-    <form action="#" method="POST">
-        <input type="text" name="name" placeholder="Full Name" required />
-        <input type="email" name="email" placeholder="Email Address" required />
-        <input type="tel" name="phone" placeholder="Phone Number" required />
-        <select name="course" required>
-            <option value="" disabled selected>Select a Course</option>
-            <option value="web-development">Web Development (2 Months)</option>
-            <option value="data-science">Data Science (2 Months)</option>
-            <option value="digital-marketing">Digital Marketing (2 Months)</option>
-            <option value="advanced-programming">Advanced Programming (6 Months)</option>
-            <option value="full-stack-development">Full Stack Development (1 Year)</option>
-            <option value="professional-certification">Professional Certification (3 Years)</option>
-        </select>
-        <textarea name="message" rows="4" placeholder="Tell us something about yourself"></textarea>
-        <button type="submit">Register Now</button>
-    </form>
-</section>
-
-
-<div  class="iframe">
-    <iframe width="560" height="315" 
-         src="https://www.youtube.com/embed/BKMCbgTd2Jg?si=7Gndrywky6TZxh4b?controls=0&modestbranding=1&rel=0&showinfo=0"
-         title="YouTube video player" 
-         frameborder="0" 
-         allow="accelerometer; autoplay; clipboard-write; encrypted-media;gyroscope; picture-in-picture; web-share"
-         referrerpolicy="strict-origin-when-cross-origin">
-    </iframe>
- </div>
-
-
-<section class="about" id="about">
-    <h2>About Us</h2>
-    <p>At Online Learning Institute, we believe in providing high-quality education accessible to all. Our team of expert trainers and state-of-the-art facilities ensure an offline learning experience for students worldwide.</p>
-    <div class="about-images">
-        <img src="institute.jpg" alt="Classroom Image" />
-        <img src="inst class.webp" alt="Laboratory Image" />
-        <img src="inst office.webp" alt="Students in Activity" />
-        <img src="inst lab.avif" alt="Activity" />
+<!-- ===================== VIDEO SECTION ===================== -->
+<section id="video-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">See It In Action</span>
+      <h2 class="section-title">How We <span class="italic">Teach</span></h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Watch a sample lecture and discover our engaging, project-based teaching approach.</p>
     </div>
+    <div class="video-wrapper reveal">
+      <iframe
+        src="https://www.youtube.com/embed/BKMCbgTd2Jg?si=7Gndrywky6TZxh4b&controls=1&modestbranding=1&rel=0"
+        title="Institute Course Preview"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
 </section>
 
+<!-- ===================== ABOUT SECTION ===================== -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Images -->
+      <div class="about-images-grid reveal">
+        <div class="about-img-wrap tall">
+          <img src="images/institute.jpg" alt="Institute Building" />
+        </div>
+        <div class="about-img-wrap about-img-wrap-short">
+          <img src="images/inst-class.webp" alt="Classroom" />
+        </div>
+        <div class="about-img-wrap about-img-wrap-short">
+          <img src="images/inst-office.webp" alt="Office" />
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="about-content reveal reveal-delay-2">
+        <span class="section-label">About Us</span>
+        <h2 class="section-title">Shaping the <span class="italic">Leaders</span> of Tomorrow</h2>
+        <div class="section-divider"></div>
+        <p class="about-desc">
+          At Online Learning Institute, we believe education is the single most powerful tool to change the world. 
+          Our team of expert trainers and state-of-the-art facilities deliver an immersive learning experience 
+          that blends theory with real-world practice.
+        </p>
+        <p class="about-desc">
+          Founded in 2018, we have grown to serve over 12,000 students across Kerala and beyond — helping them 
+          land their dream jobs, launch startups and build purposeful careers.
+        </p>
+
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon">🎓</div>
+            <div class="about-feature-text">
+              <strong>Industry-Certified Programs</strong>
+              <span>Courses aligned with latest industry standards and certifications.</span>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">👨‍💼</div>
+            <div class="about-feature-text">
+              <strong>Expert Instructors</strong>
+              <span>Learn from professionals with 10+ years of real-world experience.</span>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">🚀</div>
+            <div class="about-feature-text">
+              <strong>Placement Assistance</strong>
+              <span>Dedicated career support with 98% placement success rate.</span>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">🏛️</div>
+            <div class="about-feature-text">
+              <strong>Modern Facilities</strong>
+              <span>Fully equipped computer labs, seminar halls and library access.</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="#register" class="btn-primary" style="display:inline-flex;">
+          <span>Start Learning Today</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY SECTION ===================== -->
+<section class="section" style="background: var(--bg-card); padding-top: 80px; padding-bottom: 80px;">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Gallery</span>
+      <h2 class="section-title">Life at the <span class="italic">Institute</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="gallery-grid-4">
+      <div class="gallery-img reveal">
+        <img src="images/institute.jpg" alt="Institute Campus" />
+        <div class="gallery-caption">Our Campus</div>
+      </div>
+      <div class="gallery-img reveal reveal-delay-1">
+        <img src="images/inst-class.webp" alt="Classroom Sessions" />
+        <div class="gallery-caption">Classroom Sessions</div>
+      </div>
+      <div class="gallery-img reveal reveal-delay-2">
+        <img src="images/inst-office.webp" alt="Admin Office" />
+        <div class="gallery-caption">Administration</div>
+      </div>
+      <div class="gallery-img reveal reveal-delay-3">
+        <img src="images/inst-lab.avif" alt="Computer Lab" />
+        <div class="gallery-caption">Computer Lab</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REGISTRATION SECTION ===================== -->
+<section id="register" class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Student Registration</span>
+      <h2 class="section-title">Begin Your <span class="italic">Journey</span> Today</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Fill in the form below and our counsellor will contact you within 24 hours.</p>
+    </div>
+
+    <div class="register-grid">
+      <!-- Info Card -->
+      <div class="register-info-card reveal">
+        <h3>Why Join Us?</h3>
+        <p>Thousands of students have transformed their lives through our hands-on, industry-focused training programs.</p>
+        <ul class="register-benefits">
+          <li class="register-benefit">
+            <div class="benefit-check">✓</div>
+            <span>Industry-recognised certifications</span>
+          </li>
+          <li class="register-benefit">
+            <div class="benefit-check">✓</div>
+            <span>Live project experience</span>
+          </li>
+          <li class="register-benefit">
+            <div class="benefit-check">✓</div>
+            <span>1-on-1 mentorship sessions</span>
+          </li>
+          <li class="register-benefit">
+            <div class="benefit-check">✓</div>
+            <span>Flexible batch timings</span>
+          </li>
+          <li class="register-benefit">
+            <div class="benefit-check">✓</div>
+            <span>98% placement assistance</span>
+          </li>
+          <li class="register-benefit">
+            <div class="benefit-check">✓</div>
+            <span>Affordable EMI options available</span>
+          </li>
+          <li class="register-benefit">
+            <div class="benefit-check">✓</div>
+            <span>Access to alumni network</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Registration Form -->
+      <div class="register-form-wrap reveal reveal-delay-2">
+        <div class="form-title">Register for a Course</div>
+        <div class="form-subtitle">We'll confirm your enrollment within 24 hours.</div>
+
+        <form id="registerForm" onsubmit="handleRegister(event)" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="fname">Full Name</label>
+              <input type="text" id="fname" class="form-control" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fphone">Phone Number</label>
+              <input type="tel" id="fphone" class="form-control" placeholder="+91 XXXXX XXXXX" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="femail">Email Address</label>
+            <input type="email" id="femail" class="form-control" placeholder="you@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="fcourse">Select a Course</label>
+            <select id="fcourse" class="form-control" required>
+              <option value="" disabled selected>Choose your program</option>
+              <option value="web-development">Web Development (2 Months)</option>
+              <option value="data-science">Data Science (2 Months)</option>
+              <option value="digital-marketing">Digital Marketing (2 Months)</option>
+              <option value="advanced-programming">Advanced Programming (6 Months)</option>
+              <option value="machine-learning">Machine Learning (6 Months)</option>
+              <option value="ui-ux">UI/UX Design (6 Months)</option>
+              <option value="full-stack">Full Stack Development (1 Year)</option>
+              <option value="cloud-devops">Cloud & DevOps (1 Year)</option>
+              <option value="professional-cert">Professional Certification (3 Years)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="fmessage">Tell Us About Yourself</label>
+            <textarea id="fmessage" class="form-control" placeholder="Your background, goals or questions…"></textarea>
+          </div>
+
+          <button type="submit" class="form-submit" id="form-submit-btn">
+            🚀 Register Now
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
 <footer>
-    <div class="contact-info" id="contact">
-        <p style="margin-top: 5px;">Connect with us:</p>
-        WhatsApp: +91 12345 67899<br>
-        email: instituteofabc@gmail.com<br>
-        call: +91 12345 67899
+  <div class="footer-grid">
+    <!-- Brand -->
+    <div>
+      <div class="footer-logo">🎓 LearnInstitute</div>
+      <p class="footer-desc">Empowering students with world-class education since 2018. Building the innovators, developers and leaders of tomorrow.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-link" aria-label="Facebook">📘</a>
+        <a href="#" class="social-link" aria-label="Instagram">📸</a>
+        <a href="#" class="social-link" aria-label="WhatsApp">💬</a>
+        <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+      </div>
     </div>
-    <p>&copy; 2025 Global Learning Institute</p>
+
+    <!-- Quick Links -->
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <div class="footer-links">
+        <a href="#hero">→ Home</a>
+        <a href="#courses">→ Courses</a>
+        <a href="#popular">→ Popular Programs</a>
+        <a href="#about">→ About Us</a>
+        <a href="#register">→ Register</a>
+      </div>
+    </div>
+
+    <!-- Programs -->
+    <div>
+      <div class="footer-col-title">Programs</div>
+      <div class="footer-links">
+        <a href="#courses">→ Web Development</a>
+        <a href="#courses">→ Data Science</a>
+        <a href="#courses">→ Full Stack Dev</a>
+        <a href="#courses">→ Digital Marketing</a>
+        <a href="#courses">→ Cloud & DevOps</a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div id="contact">
+      <div class="footer-col-title">Get In Touch</div>
+      <div class="footer-contact-items">
+        <div class="footer-contact-item">
+          <span class="icon">📍</span>
+          <span>123, College Road, Kannur City, Kerala — 670001</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon">📞</span>
+          <span><a href="tel:+911234567899" style="color:inherit">+91 12345 67899</a></span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon">✉️</span>
+          <span><a href="mailto:instituteofabc@gmail.com" style="color:inherit">instituteofabc@gmail.com</a></span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon">💬</span>
+          <span>WhatsApp: +91 12345 67899</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon">🕐</span>
+          <span>Mon–Sat: 8:00 AM – 7:00 PM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© <script>document.write(new Date().getFullYear())</script> Online Learning Institute. All rights reserved.</span>
+    <span>Made with ❤️ in Kerala, India</span>
+  </div>
 </footer>
 
+<!-- ===================== TOAST ===================== -->
+<div id="toast">
+  <span>✅</span>
+  <span id="toast-msg">Registered successfully!</span>
+</div>
+
+<!-- ===================== JAVASCRIPT ===================== -->
 <script>
-    function toggleMenu() {
-        const navLinks = document.getElementById('navLinks');
-        if (navLinks.style.display === "flex") {
-            navLinks.style.display = "none";
-        } else {
-            navLinks.style.display = "flex";
+  /* ---- Page Loader ---- */
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      document.getElementById('page-loader').classList.add('hidden');
+    }, 1600);
+  });
+
+  /* ---- Navbar scroll ---- */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function () {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* ---- Mobile menu ---- */
+  function toggleMenu() {
+    const links = document.getElementById('navLinks');
+    const burger = document.getElementById('hamburger');
+    links.classList.toggle('open');
+    burger.classList.toggle('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    });
+  });
+  document.addEventListener('click', function (e) {
+    const nav = document.getElementById('navbar');
+    const navLinks = document.getElementById('navLinks');
+    const burger = document.getElementById('hamburger');
+    if (!navLinks.classList.contains('open')) return;
+    if (!nav.contains(e.target)) {
+      navLinks.classList.remove('open');
+      burger.classList.remove('open');
+    }
+  });
+
+  /* ---- Duration Tab Switcher ---- */
+  function switchDuration(duration, btn) {
+    document.querySelectorAll('.courses-panel').forEach(function (p) {
+      p.classList.remove('active');
+    });
+    document.querySelectorAll('.duration-tab').forEach(function (t) {
+      t.classList.remove('active');
+    });
+    document.getElementById('panel-' + duration).classList.add('active');
+    btn.classList.add('active');
+    // Re-trigger reveal for newly visible cards
+    requestAnimationFrame(function () { initReveal(); });
+  }
+
+  /* ---- Registration form ---- */
+  function handleRegister(e) {
+    e.preventDefault();
+    const btn = document.getElementById('form-submit-btn');
+    btn.textContent = '⏳ Submitting…';
+    btn.disabled = true;
+    setTimeout(function () {
+      showToast('🎉 Registration successful! We\'ll contact you soon.');
+      e.target.reset();
+      btn.textContent = '🚀 Register Now';
+      btn.disabled = false;
+    }, 1400);
+  }
+
+  /* ---- Toast ---- */
+  let toastTimer;
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    document.getElementById('toast-msg').textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+      toast.classList.remove('show');
+    }, 3500);
+  }
+
+  /* ---- Scroll Reveal ---- */
+  function initReveal() {
+    const reveals = document.querySelectorAll('.reveal:not(.visible)');
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
-    }
-
-    function types() {
-        const typesDiv = document.getElementById("types");
-        if (typesDiv.style.display === "block") {
-            typesDiv.style.display = "none";
-        } else {
-            typesDiv.style.display = "block";
-        }
-    }
-
-    function smonths() {
-        const smonthDiv = document.getElementById("2month");
-        const isVisible = smonthDiv.style.display === "block";
-        
-        smonthDiv.style.display = isVisible ? "none" : "block";
-        document.getElementById("6month").style.display = "none";
-        document.getElementById("1year").style.display = "none";
-        document.getElementById("3years").style.display = "none";
-    }
-
-    function bmonths() {
-        const bmonthDiv = document.getElementById("6month");
-        const isVisible = bmonthDiv.style.display === "block";
-        
-        bmonthDiv.style.display = isVisible ? "none" : "block";
-        document.getElementById("2month").style.display = "none";
-        document.getElementById("1year").style.display = "none";
-        document.getElementById("3years").style.display = "none";
-    }
-
-    function syear() {
-        const syearDiv = document.getElementById("1year");
-        const isVisible = syearDiv.style.display === "block";
-        
-        syearDiv.style.display = isVisible ? "none" : "block";
-        document.getElementById("2month").style.display = "none";
-        document.getElementById("6month").style.display = "none";
-        document.getElementById("3years").style.display = "none";
-    }
-
-    function byear() {
-        const byearDiv = document.getElementById("3years");
-        const isVisible = byearDiv.style.display === "block";
-        
-        byearDiv.style.display = isVisible ? "none" : "block";
-        document.getElementById("2month").style.display = "none";
-        document.getElementById("6month").style.display = "none";
-        document.getElementById("1year").style.display = "none";
-    }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(function (el) { observer.observe(el); });
+  }
+  document.addEventListener('DOMContentLoaded', initReveal);
 </script>
 
 </body>
 </html>
-
-
